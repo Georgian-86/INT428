@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WattSaver - Energy Efficiency Assistant</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-bolt"></i>
+          <h1>WattSaver</h1>
+        </div>
+        <p class="tagline">Your personal energy efficiency assistant</p>
+        <p class="tagline">Built by <a href="https://github.com/Georgian-86">Golu Kumar</a>, Reg No: 12300841</p>
+      </header>
+
+      <main>
+        <div class="chat-container">
+          <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+              <div class="message-content">
+                <p>
+                  Hello! I'm WattSaver, your personal energy efficiency
+                  assistant. I can help you find ways to save energy and lower
+                  your electricity bill. To best assist you, tell me a bit about
+                  your energy usage habits or concerns.
+                </p>
+                <p>For example, you could tell me:</p>
+                <ul>
+                  <li>
+                    <strong>What are your biggest energy consumers?</strong>
+                    (e.g., heating/cooling, lighting, appliances)
+                  </li>
+                  <li>
+                    <strong
+                      >Are there any specific appliances or areas of your home
+                      you'd like to focus on?</strong
+                    >
+                  </li>
+                  <li>
+                    <strong>What's your current energy bill like?</strong> (You
+                    don't need to share the exact amount, just a general idea –
+                    high, average, low)
+                  </li>
+                  <li>
+                    <strong>What kind of home do you live in?</strong> (e.g.,
+                    apartment, house, size)
+                  </li>
+                  <li>
+                    <strong
+                      >Are you willing to make small changes, or are you looking
+                      for more significant upgrades?</strong
+                    >
+                  </li>
+                </ul>
+                <p>
+                  The more information you give me, the more tailored and
+                  helpful my suggestions will be. Let's start saving energy!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-container">
+            <textarea
+              id="user-input"
+              placeholder="Type your message here..."
+              rows="1"
+            ></textarea>
+            <button id="send-button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Powered by Google Gemini AI</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
