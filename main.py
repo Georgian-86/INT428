@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, request, jsonify, session
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -23,6 +24,7 @@ model = genai.GenerativeModel(
   model_name="gemini-1.5-flash",
   generation_config=generation_config,
 )
+
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -60,6 +62,17 @@ def index():
         session['session_id'] = str(uuid.uuid4())
     return render_template('index.html')
 
+@app.route("/debug", methods=["GET"])
+def debug():
+    # Convert chat_sessions to a serializable format
+    serializable_sessions = [
+        {
+            "session_id": session_id,
+            "history": chat_session.history  # Assuming history is a serializable attribute
+        }
+        for session_id, chat_session in chat_sessions.items()
+    ]
+    return jsonify(serializable_sessions)
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.json.get('message', '')
